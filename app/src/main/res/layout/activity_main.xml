@@ -22,105 +22,153 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <GridLayout
-        android:id="@+id/gridLayout"
-        android:layout_width="360dp"
-        android:layout_height="200dp"
-        android:layout_marginBottom="88dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:columnCount="2"
-        android:rowCount="2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/gameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <GridLayout
+            android:id="@+id/gridLayout"
+            android:layout_width="360dp"
+            android:layout_height="200dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:columnCount="2"
+            android:rowCount="2"
+            app:layout_constraintBottom_toTopOf="@+id/textViewInfo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewQuestion">
+
+            <TextView
+                android:id="@+id/textViewOption1"
+                android:layout_width="180dp"
+                android:layout_height="100dp"
+                android:background="@color/colorPrimaryDark"
+                android:onClick="checkAnswer"
+                android:padding="0dp"
+                android:text="00"
+                android:textAlignment="center"
+                android:textSize="70sp" />
+
+            <TextView
+                android:id="@+id/textViewOption2"
+                android:layout_width="180dp"
+                android:layout_height="100dp"
+                android:background="@android:color/holo_blue_dark"
+                android:onClick="checkAnswer"
+                android:padding="0dp"
+                android:text="00"
+                android:textAlignment="center"
+                android:textSize="70sp" />
+
+            <TextView
+                android:id="@+id/textViewOption3"
+                android:layout_width="180dp"
+                android:layout_height="100dp"
+                android:background="@android:color/holo_green_light"
+                android:onClick="checkAnswer"
+                android:padding="0dp"
+                android:text="00"
+                android:textAlignment="center"
+                android:textSize="70sp"
+                android:typeface="normal" />
+
+            <TextView
+                android:id="@+id/textViewOption4"
+                android:layout_width="180dp"
+                android:layout_height="100dp"
+                android:background="@color/colorAccent"
+                android:onClick="checkAnswer"
+                android:padding="0dp"
+                android:text="00"
+                android:textAlignment="center"
+                android:textSize="70sp" />
+        </GridLayout>
 
         <TextView
-            android:id="@+id/textViewOption1"
-            android:layout_width="180dp"
-            android:layout_height="100dp"
-            android:background="@color/colorPrimaryDark"
-            android:padding="0dp"
-            android:text="00"
+            android:id="@+id/textViewScore"
+            android:layout_width="120dp"
+            android:layout_height="59dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:background="#00621c"
+            android:text="00/00"
             android:textAlignment="center"
-            android:onClick="checkAnswer"
-            android:textSize="70sp" />
+            android:textColor="@android:color/background_light"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/buttonRestart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="148dp"
+            android:layout_marginStart="148dp"
+            android:layout_marginTop="8dp"
+            android:background="#0f1d8a"
+            android:onClick="playAgain"
+            android:padding="15dp"
+            android:text="Play again!"
+            android:textColor="@android:color/background_light"
+            android:textSize="18sp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewInfo" />
 
         <TextView
-            android:id="@+id/textViewOption2"
-            android:layout_width="180dp"
-            android:layout_height="100dp"
-            android:background="@android:color/holo_blue_dark"
-            android:padding="0dp"
-            android:text="00"
+            android:id="@+id/textViewInfo"
+            android:layout_width="0dp"
+            android:layout_height="53dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:textAlignment="center"
-            android:onClick="checkAnswer"
-            android:textSize="70sp" />
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="36sp"
+            app:layout_constraintBottom_toTopOf="@+id/buttonRestart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gridLayout" />
 
         <TextView
-            android:id="@+id/textViewOption3"
-            android:layout_width="180dp"
-            android:layout_height="100dp"
-            android:background="@android:color/holo_green_light"
-            android:onClick="checkAnswer"
-            android:padding="0dp"
-            android:text="00"
+            android:id="@+id/textViewQuestion"
+            android:layout_width="238dp"
+            android:layout_height="83dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="73dp"
+            android:layout_marginStart="73dp"
+            android:layout_marginTop="8dp"
+            android:text="00 + 00"
             android:textAlignment="center"
-            android:textSize="70sp"
-            android:typeface="normal" />
+            android:textSize="60sp"
+            app:layout_constraintBottom_toTopOf="@+id/gridLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTime" />
 
         <TextView
-            android:id="@+id/textViewOption4"
-            android:layout_width="180dp"
-            android:layout_height="100dp"
-            android:background="@color/colorAccent"
-            android:padding="0dp"
-            android:text="00"
+            android:id="@+id/textViewTime"
+            android:layout_width="80dp"
+            android:layout_height="59dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="#ce0202"
+            android:text="30s"
             android:textAlignment="center"
-            android:onClick="checkAnswer"
-            android:textSize="70sp" />
-    </GridLayout>
-
-    <TextView
-        android:id="@+id/textViewTime"
-        android:layout_width="80dp"
-        android:layout_height="59dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:background="#ce0202"
-        android:text="30s"
-        android:textAlignment="center"
-        android:textColor="@android:color/background_light"
-        android:textSize="40sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewScore"
-        android:layout_width="120dp"
-        android:layout_height="59dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
-        android:background="#00621c"
-        android:text="00/00"
-        android:textAlignment="center"
-        android:textColor="@android:color/background_light"
-        android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewQuestion"
-        android:layout_width="238dp"
-        android:layout_height="83dp"
-        android:layout_marginBottom="36dp"
-        android:layout_marginEnd="73dp"
-        android:layout_marginStart="73dp"
-        android:text="00 + 00"
-        android:textAlignment="center"
-        android:textSize="60sp"
-        app:layout_constraintBottom_toTopOf="@+id/gridLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+            android:textColor="@android:color/background_light"
+            android:textSize="40sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>
