@@ -1,5 +1,5 @@
 package com.example.and.braintrainer;
-// still present error and crashes after a few tries playing
+
 import android.os.CountDownTimer;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void playAgain(View view){
-        //buttonRestart.setVisibility(View.INVISIBLE);
+        buttonRestart.setVisibility(View.INVISIBLE);
         score=0;
         games=0;
         textViewInfo.setText("");
@@ -61,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setQuestion(View view){
-        // check the time
         randNumber1=randN.nextInt(maxNum)+1;
         randNumber2=randN.nextInt(maxNum)+1;
         numbers=generateNumbers(randNumber1,randNumber2);
@@ -85,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         // make answer in a random textView and avoid option to be repeated, avoid negative
         for (int i = 0; numbers.size() <4; i++) {
             // usually gives numbers lower than the true sum
-            element=abs(sum+(randN.nextInt(randNumber1)*(-1)^randN.nextInt(2))+1);
+            element=randN.nextInt(sum*2);
             if (!numbers.contains(element)) {
                 numbers.add(element);
             }
