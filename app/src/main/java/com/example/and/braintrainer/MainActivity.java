@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         // make answer in a random textView and avoid option to be repeated, avoid negative
         for (int i = 0; numbers.size() <4; i++) {
             // usually gives numbers lower than the true sum
-            element=randN.nextInt(sum*2);
+            element=randN.nextInt(sum) + randNumber1;
             if (!numbers.contains(element)) {
                 numbers.add(element);
             }
